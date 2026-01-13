@@ -1,6 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
 import TrackVisibility from "react-on-screen";
 import 'animate.css';
+import realisatie from "../assets/img/Stage/RealisatieDocumentMathijsOoms.pdf"
+import projectPlan from "../assets/img/Stage/ProjectPlanMathijsOoms.pdf"
+import reflectie from "../assets/img/Stage/ReflectieDocumentMathijsOoms.pdf"
 
 export const Internship = () => {
   return (
@@ -32,8 +35,21 @@ export const Internship = () => {
                   </p>
 
                   <p>
-                    Curious about the projects? Check them out in the <a href="#projects" style={{ color: '#00c8ff', textDecoration: 'underline' }}>Projects tab</a> to see all 6 in detail!
+                    Curious about the projects? Check them out in the <a href="#projects" style={{ color: '#00c8ff', textDecoration: 'underline' }}>Projects tab</a> or documents below to see all 6 in detail!
                   </p>
+
+                  <h4>Documents</h4>
+                  <div>
+                    <span className="tagline">
+                      <a href={projectPlan} download="ProjectPlanMathijsOoms">Project Plan</a>
+                    </span>
+                    <span className="tagline">
+                      <a href={realisatie} download="RealisatieMathijsOoms">Realization Document</a>
+                    </span>
+                    <span className="tagline">
+                      <a href={reflectie} download="ReflectieMathijsOoms">Reflection</a>
+                    </span>
+                  </div>
                 </div>
             </TrackVisibility>
           </Col>

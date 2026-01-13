@@ -234,7 +234,7 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>Throughout my studies in Application Development, I have worked on several projects that showcase my skills in .NET, Angular, Java, React, and PHP.<br></br>Each project has allowed me to deepen my understanding of software development, problem-solving, and user experience design.</p>
+                <p>Throughout my studies in Application Development, I have worked on several projects that showcase my skills in C#, .NET, Angular and Java.<br></br>Each project has allowed me to deepen my understanding of software development, problem-solving, and user experience design.</p>
                 <p>Below, you will find some of my most notable projects, ranging from web applications to full-stack solutions. These projects reflect my passion for creating efficient, scalable, and user-friendly applications.</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">

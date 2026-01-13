@@ -19,7 +19,7 @@ export const Footer = () => {
               <a href="https://x.com/Mathijs_Ooms"><img src={navIcon2} alt="X" /></a>
               <a href="https://github.com/MathijsOoms"><img src={navIcon3} alt="GitHub" /></a>
             </div>
-            <p>Copyright 2025. All Rights Reserved</p>
+            <p>Copyright 2026. All Rights Reserved</p>
           </Col>
         </Row>
       </Container>
