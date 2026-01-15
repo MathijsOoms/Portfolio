@@ -67,9 +67,14 @@ return (
                     </span>
                   </h1>
                   <p>
-                    I'm a third-year Application Development student, passionate about crafting innovative and user-friendly applications. In this portfolio, you'll find an overview of my skills, internship, projects, and interests.
+                    I'm a third-year Application Development student, passionate about crafting innovative and user-friendly applications. In this portfolio, you'll find an overview of my skills, internship and projects.
                   </p>
-                  <button onClick={() => console.log('connect')}>
+                  <button onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/mathijs-ooms-b6b740298/",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )}>
                     Let’s Connect <ArrowRightCircle size={25} />
                   </button>
                 </div>

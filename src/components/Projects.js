@@ -65,9 +65,11 @@ export const Projects = () => {
 
   const [selectedProject, setSelectedProject] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
 
-  const handleCardClick = (project) => {
+  const handleCardClick = (project, imageIndex = 0) => {
     setSelectedProject(project);
+    setStartIndex(imageIndex);
     setShowModal(true);
   };
 
@@ -160,70 +162,84 @@ export const Projects = () => {
       ]
     },
   ];
-  const projects2 = [
-    {
-      title: "Home Page",
-      description: "Clean design with info about the festival",
-      imgUrl: angular1,
-    },
-    {
-      title: "Artists Page",
-      description: "A list of all artists in the line-up of the festival",
-      imgUrl: angular2,
-    },
-    {
-      title: "Artist Details Page",
-      description: "All details of the chosen artist",
-      imgUrl: angular6,
-    },
-    {
-      title: "Ticket Page",
-      description: "All available tickets to attend the festival",
-      imgUrl: angular3,
-    },
-    {
-      title: "Stage Page",
-      description: "All stages on the festival",
-      imgUrl: angular4,
-    },
-    {
-      title: "Admin Overview",
-      description: "An overview of all statistics of the festival",
-      imgUrl: angular5,
-    },
-  ];
-  const projects3 = [
-    {
-      title: "Home Page",
-      description: "A user friendly home page made for farmers",
-      imgUrl: agro1,
-    },
-    {
-      title: "Set Up Claim",
-      description: "A page to fill in all info to set up a claim for damages",
-      imgUrl: agro2,
-    },
-    {
-      title: "Manage Claims",
-      description: "Page to manage all created claims",
-      imgUrl: agro3,
-    },
-    {
-      title: "Manage Plots",
-      description: "Page to manage all registered plots",
-      imgUrl: agro4,
-    },
-    {
-      title: "Register Plots",
-      description: "Page to register plots for farmers",
-      imgUrl: agro5,
-    },
-    {
-      title: "Government Dashboard",
-      description: "A dashboard for the government to review all claims",
-      imgUrl: agro6,
-    },
-  ];
+const projects2 = [
+  {
+    title: "Angular Festival Webapp",
+    extendedDescription:
+      "This full-stack festival web application was built using Angular for the frontend and Java for the backend. Visitors can explore the line-up, view artist details, browse stages, and purchase tickets through a clear and intuitive interface. The application is structured using reusable Angular components and services to ensure scalability and maintainability. An admin dashboard allows organizers to manage content and monitor ticket sales. This project demonstrates my ability to combine frontend usability with solid backend architecture.",
+    images: [
+      {
+        img: angular1,
+        title: "Home Page",
+        description: "Clean design with info about the festival",
+      },
+      {
+        img: angular2,
+        title: "Artists Page",
+        description: "A list of all artists in the festival line-up",
+      },
+      {
+        img: angular6,
+        title: "Artist Details",
+        description: "All details of the selected artist",
+      },
+      {
+        img: angular3,
+        title: "Tickets",
+        description: "Overview of all available tickets",
+      },
+      {
+        img: angular4,
+        title: "Stages",
+        description: "All festival stages visualized",
+      },
+      {
+        img: angular5,
+        title: "Admin Dashboard",
+        description: "Statistics and management tools for admins",
+      },
+    ],
+  },
+];
+const projects3 = [
+  {
+    title: "AgroShield Platform",
+    extendedDescription:
+      "AgroShield is a web platform that helps farmers manage land parcels and submit damage claims in a structured way. Farmers can register plots, create claims, and track their status through a user-friendly dashboard. Government users have access to a dedicated interface for reviewing and validating submitted claims. The platform improves efficiency and reduces administrative overhead. This project highlights my experience with role-based applications and real-world business workflows.",
+    images: [
+      {
+        img: agro1,
+        title: "Home Dashboard",
+        description: "User-friendly dashboard for farmers",
+      },
+      {
+        img: agro2,
+        title: "Create Claim",
+        description: "Step-by-step damage claim creation",
+      },
+      {
+        img: agro3,
+        title: "Manage Claims",
+        description: "Overview of all submitted claims",
+      },
+      {
+        img: agro4,
+        title: "Plots",
+        description: "Manage registered parcels",
+      },
+      {
+        img: agro5,
+        title: "Register Plots",
+        description: "Register new land plots",
+      },
+      {
+        img: agro6,
+        title: "Government Dashboard",
+        description: "Claim validation for government users",
+      },
+    ],
+  },
+];
 
   return (
     <section className="project" id="projects">
@@ -266,31 +282,31 @@ export const Projects = () => {
                     <Tab.Pane eventKey="second">
                       <p>This project I made with 4 fellow students. We used Angular for the front-end and Java for the back-end. The webapp is a festival website template and can be modified for every festival in the admin panel. The end user pages we made are the Home Page, Line-up, Tickets, Merchandise, Stages and Contact. In the admin panel all these data can be changed to fit different events.</p>
                       <Row>
-                        {
-                          projects2.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
+                        {projects2.map((project) => project.images.map((item, imgIndex) => (
+                        <ProjectCard
+                          key={imgIndex}
+                          title={item.title}
+                          description={item.description}
+                          imgUrl={item.img}
+                          onClick={() => handleCardClick(project, imgIndex)}
+                        />
+                        ))
+                      )}
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       <p>With my team AgroShield we made this webapp and mobile app for company Vito in Angular front-end and FastAPI back-end. AgroShield is an innovative application that helps farmers manage their fields and file a claim. We made pages for 4 end users: Farmer, Consultant, Government and Admin. The biggest challenges were the map with all parcels in Flanders and using the EOplaza services from Vito to create graphs to use as evidence.</p>
                       <Row>
-                        {
-                          projects3.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
+                        {projects3.map((project) => project.images.map((item, imgIndex) => (
+                        <ProjectCard
+                          key={imgIndex}
+                          title={item.title}
+                          description={item.description}
+                          imgUrl={item.img}
+                          onClick={() => handleCardClick(project, imgIndex)}
+                        />
+                        ))
+                      )}
                       </Row>
                     </Tab.Pane>
                   </Tab.Content>
@@ -302,11 +318,12 @@ export const Projects = () => {
       </Container>
       <img className="background-image-right" src={colorSharp2}></img>
 
-      <ProjectModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        project={selectedProject}
-      />
+<ProjectModal
+  show={showModal}
+  handleClose={handleCloseModal}
+  project={selectedProject}
+  startIndex={startIndex}
+/>
     </section>
   )
 }
